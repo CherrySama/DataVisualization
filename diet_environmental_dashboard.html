@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>饮食类型环境影响分析仪表板</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        .slide-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .slide-container.active {
+            display: block;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .slide-dots {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .dot.active {
+            background-color: #3498db;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 700px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .slide-title {
+            margin-top: 0;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            font-size: 24px;
+        }
+        .slide-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .navigation-help {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>饮食类型的环境影响分析</h1>
+        
+        <div class="nav-buttons">
+            <button onclick="prevSlide()">上一个</button>
+            <button onclick="nextSlide()">下一个</button>
+        </div>
+        
+        <div class="slide-dots" id="slide-dots">
+            <!-- 将由JavaScript填充 -->
+        </div>
+        
+        <div class="slides" id="slides">
+            <!-- 幻灯片内容 -->
+            <div class="slide-container">
+                <h2 class="slide-title">1. 饮食类型的环境影响构成比例</h2>
+                <p class="slide-description">此图展示了不同饮食类型对各种环境指标的影响构成比例，帮助理解每种饮食在不同环境方面的相对影响。</p>
+                <div class="iframe-container">
+                    <iframe src="diet_environmental_composition.html"></iframe>
+                </div>
+            </div>
+            
+            <div class="slide-container">
+                <h2 class="slide-title">2. 各饮食类型的环境影响多维对比</h2>
+                <p class="slide-description">平行坐标图展示了各个饮食类型在所有环境指标上的表现，便于多维度比较不同饮食类型的环境影响。</p>
+                <div class="iframe-container">
+                    <iframe src="diet_environmental_parallel.html"></iframe>
+                </div>
+            </div>
+            
+            <div class="slide-container">
+                <h2 class="slide-title">3. 不同饮食类型的环境影响特征分布</h2>
+                <p class="slide-description">雷达图直观地展示了各饮食类型在不同环境指标上的相对影响，展现每种饮食的环境影响特征。</p>
+                <div class="iframe-container">
+                    <iframe src="diet_environmental_radar.html"></iframe>
+                </div>
+            </div>
+            
+            <div class="slide-container">
+                <h2 class="slide-title">4. 环境指标之间的关系散点图矩阵</h2>
+                <p class="slide-description">散点图矩阵展示了各环境指标之间的相互关系，帮助发现环境指标间的相关性和模式。</p>
+                <div class="iframe-container">
+                    <iframe src="environmental_scatter_matrix.html"></iframe>
+                </div>
+            </div>
+            
+            <div class="slide-container">
+                <h2 class="slide-title">5. 饮食类型的'环境足迹地图'</h2>
+                <p class="slide-description">这张创意地图将环境影响数据通过主成分分析映射到二维空间，直观展示不同饮食类型的环境足迹分布。</p>
+                <div class="iframe-container">
+                    <iframe src="final_environmental_impact_map.html"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation-help">
+            提示：您可以使用键盘左右箭头键进行导航，也可以在每个图表中使用鼠标交互（悬停、缩放、平移等）
+        </div>
+        
+        <div class="footer">
+            © 2025 饮食与环境影响分析 | 数据来源：牛津大学研究团队
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-container');
+        const totalSlides = slides.length;
+        
+        // 初始化点导航
+        const dotsContainer = document.getElementById('slide-dots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.onclick = function() { goToSlide(i); };
+            dotsContainer.appendChild(dot);
+        }
+        
+        // 显示第一张幻灯片
+        function showSlides() {
+            for (let i = 0; i < totalSlides; i++) {
+                slides[i].classList.remove('active');
+                document.querySelectorAll('.dot')[i].classList.remove('active');
+            }
+            slides[currentSlide].classList.add('active');
+            document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+        }
+        
+        // 下一张幻灯片
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlides();
+        }
+        
+        // 上一张幻灯片
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlides();
+        }
+        
+        // 转到特定幻灯片
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlides();
+        }
+        
+        // 初始化
+        showSlides();
+        
+        // 键盘导航
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+        
+        // 自动循环播放（可选）
+        // let slideInterval = setInterval(nextSlide, 15000); // 每15秒自动切换一次
+        
+        // 鼠标悬停暂停自动播放（如果启用自动播放）
+        // document.querySelector('.dashboard-container').addEventListener('mouseenter', function() {
+        //     clearInterval(slideInterval);
+        // });
+        
+        // 鼠标离开恢复自动播放（如果启用自动播放）
+        // document.querySelector('.dashboard-container').addEventListener('mouseleave', function() {
+        //     slideInterval = setInterval(nextSlide, 15000);
+        // });
+    </script>
+</body>
+</html>
