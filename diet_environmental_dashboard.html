@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +72,7 @@
         }
         .iframe-container {
             width: 100%;
-            height: 800px; /* 增加高度 */
+            height: 800px; 
             border-radius: 4px;
             overflow: hidden;
         }
@@ -108,13 +107,13 @@
             color: #7f8c8d;
             font-size: 14px;
         }
-        /* 添加响应式设计 */
+        /* Adding responsive design */ 
         @media (max-width: 768px) {
             .iframe-container {
                 height: 600px;
             }
         }
-        /* 确保iframe内容正确加载 */
+        /* Make sure the iframe content loads correctly */
         .iframe-loading {
             position: relative;
         }
@@ -153,15 +152,7 @@
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">2. Multidimensional comparison of the environmental impact of different diet types</h2>
-                <p class="slide-description">The parallel coordinates plot shows the performance of each diet type on all environmental indicators, making it easier to compare the environmental impacts of different diet types in multiple dimensions.</p>
-                <div class="iframe-container iframe-loading">
-                    <iframe src="diet_environmental_parallel.html" onload="this.parentNode.classList.remove('iframe-loading')"></iframe>
-                </div>
-            </div>
-            
-            <div class="slide-container">
-                <h2 class="slide-title">3. Distribution of environmental impact characteristics of different diet types</h2>
+                <h2 class="slide-title">2. Distribution of environmental impact characteristics of different diet types</h2>
                 <p class="slide-description">The radar chart intuitively shows the relative impact of different diet types on different environmental indicators, showing the environmental impact characteristics of each diet.</p>
                 <div class="iframe-container iframe-loading">
                     <iframe src="diet_environmental_radar.html" onload="this.parentNode.classList.remove('iframe-loading')"></iframe>
@@ -169,15 +160,7 @@
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">4. Scatter plot matrix of relationships between environmental indicators</h2>
-                <p class="slide-description">The scatter plot matrix shows the relationship between various environmental indicators and helps to discover the correlation and patterns between environmental indicators.</p>
-                <div class="iframe-container iframe-loading">
-                    <iframe src="environmental_scatter_matrix.html" onload="this.parentNode.classList.remove('iframe-loading')"></iframe>
-                </div>
-            </div>
-            
-            <div class="slide-container">
-                <h2 class="slide-title">5. 'Environmental footprint map' of dietary types</h2>
+                <h2 class="slide-title">3. 'Environmental footprint map' of dietary types</h2>
                 <p class="slide-description">This creative map maps environmental impact data into two-dimensional space through principal component analysis, visually showing the distribution of environmental footprints of different diet types.</p>
                 <div class="iframe-container iframe-loading">
                     <iframe src="final_environmental_impact_map.html" onload="this.parentNode.classList.remove('iframe-loading')"></iframe>
@@ -199,7 +182,7 @@
         const slides = document.querySelectorAll('.slide-container');
         const totalSlides = slides.length;
         
-        // 初始化点导航
+        // Initialization point navigation
         const dotsContainer = document.getElementById('slide-dots');
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('span');
@@ -208,7 +191,7 @@
             dotsContainer.appendChild(dot);
         }
         
-        // 显示第一张幻灯片
+        // Show first slide
         function showSlides() {
             for (let i = 0; i < totalSlides; i++) {
                 slides[i].classList.remove('active');
@@ -217,37 +200,36 @@
             slides[currentSlide].classList.add('active');
             document.querySelectorAll('.dot')[currentSlide].classList.add('active');
             
-            // 确保iframe内容正确加载
+            // Make sure the iframe content loads correctly
             const activeIframe = slides[currentSlide].querySelector('iframe');
             if (activeIframe) {
                 activeIframe.src = activeIframe.src;
             }
         }
         
-        // 下一张幻灯片
+        // Next slide
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
             showSlides();
         }
         
-        // 上一张幻灯片
+        // Previous Slide
         function prevSlide() {
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             showSlides();
         }
         
-        // 转到特定幻灯片
+        // Go to a specific slide
         function goToSlide(n) {
             currentSlide = n;
             showSlides();
         }
         
-        // 等待页面完全加载
+        // Wait for the page to fully load
         window.onload = function() {
-            // 初始化
             showSlides();
             
-            // 添加调整大小处理程序，确保iframe高度正确
+            // Add a resize handler to ensure the iframe height is correct
             window.addEventListener('resize', function() {
                 const activeIframe = document.querySelector('.slide-container.active iframe');
                 if (activeIframe) {
@@ -260,7 +242,7 @@
             });
         };
         
-        // 键盘导航
+        // Keyboard Navigation
         document.addEventListener('keydown', function(e) {
             if (e.key === 'ArrowRight') {
                 nextSlide();
