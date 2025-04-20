@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>饮食类型环境影响分析仪表板</title>
+    <title>Diet Type Environmental Impact Analysis Dashboard</title>
     <meta charset="UTF-8">
     <style>
         body {
@@ -111,54 +112,54 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <h1>饮食类型的环境影响分析</h1>
+        <h1>Environmental impact analysis of diet type</h1>
         
         <div class="nav-buttons">
-            <button onclick="prevSlide()">上一个</button>
-            <button onclick="nextSlide()">下一个</button>
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
         </div>
         
         <div class="slide-dots" id="slide-dots">
-            <!-- 将由JavaScript填充 -->
+            <!-- Will be populated by JavaScript -->
         </div>
         
         <div class="slides" id="slides">
-            <!-- 幻灯片内容 -->
+            <!-- Slide Content -->
             <div class="slide-container">
-                <h2 class="slide-title">1. 饮食类型的环境影响构成比例</h2>
-                <p class="slide-description">此图展示了不同饮食类型对各种环境指标的影响构成比例，帮助理解每种饮食在不同环境方面的相对影响。</p>
+                <h2 class="slide-title">1. Environmental impact proportion of dietary type</h2>
+                <p class="slide-description">This figure shows the proportion of the impact of different diet types on various environmental indicators, helping to understand the relative impact of each diet on different environmental aspects.</p>
                 <div class="iframe-container">
                     <iframe src="diet_environmental_composition.html"></iframe>
                 </div>
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">2. 各饮食类型的环境影响多维对比</h2>
-                <p class="slide-description">平行坐标图展示了各个饮食类型在所有环境指标上的表现，便于多维度比较不同饮食类型的环境影响。</p>
+                <h2 class="slide-title">2. Multidimensional comparison of the environmental impact of different diet types</h2>
+                <p class="slide-description">The parallel coordinates plot shows the performance of each diet type on all environmental indicators, making it easier to compare the environmental impacts of different diet types in multiple dimensions.</p>
                 <div class="iframe-container">
                     <iframe src="diet_environmental_parallel.html"></iframe>
                 </div>
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">3. 不同饮食类型的环境影响特征分布</h2>
-                <p class="slide-description">雷达图直观地展示了各饮食类型在不同环境指标上的相对影响，展现每种饮食的环境影响特征。</p>
+                <h2 class="slide-title">3. Distribution of environmental impact characteristics of different diet types</h2>
+                <p class="slide-description">The radar chart intuitively shows the relative impact of different diet types on different environmental indicators, showing the environmental impact characteristics of each diet.</p>
                 <div class="iframe-container">
                     <iframe src="diet_environmental_radar.html"></iframe>
                 </div>
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">4. 环境指标之间的关系散点图矩阵</h2>
-                <p class="slide-description">散点图矩阵展示了各环境指标之间的相互关系，帮助发现环境指标间的相关性和模式。</p>
+                <h2 class="slide-title">4. Scatter plot matrix of relationships between environmental indicators</h2>
+                <p class="slide-description">The scatter plot matrix shows the relationship between various environmental indicators and helps to discover the correlation and patterns between environmental indicators.</p>
                 <div class="iframe-container">
                     <iframe src="environmental_scatter_matrix.html"></iframe>
                 </div>
             </div>
             
             <div class="slide-container">
-                <h2 class="slide-title">5. 饮食类型的'环境足迹地图'</h2>
-                <p class="slide-description">这张创意地图将环境影响数据通过主成分分析映射到二维空间，直观展示不同饮食类型的环境足迹分布。</p>
+                <h2 class="slide-title">5. 'Environmental footprint map' of dietary types</h2>
+                <p class="slide-description">This creative map maps environmental impact data into two-dimensional space through principal component analysis, visually showing the distribution of environmental footprints of different diet types.</p>
                 <div class="iframe-container">
                     <iframe src="final_environmental_impact_map.html"></iframe>
                 </div>
@@ -166,11 +167,11 @@
         </div>
         
         <div class="navigation-help">
-            提示：您可以使用键盘左右箭头键进行导航，也可以在每个图表中使用鼠标交互（悬停、缩放、平移等）
+            Tip: You can use the keyboard left and right arrow keys to navigate, or use mouse interaction within each chart (hover, zoom, pan, etc.)
         </div>
         
         <div class="footer">
-            © 2025 饮食与环境影响分析 | 数据来源：牛津大学研究团队
+            © 2025 Diet and environmental impact analysis | Data Source: Scarborough, P., et al. Dataset for 'Vegans, Vegetarians, Fish-Eaters and Meat-Eaters in the UK Show Discrepant Environmental Impacts'. University of Oxford, 2023.
         </div>
     </div>
     
@@ -179,7 +180,7 @@
         const slides = document.querySelectorAll('.slide-container');
         const totalSlides = slides.length;
         
-        // 初始化点导航
+        // Initialization point navigation
         const dotsContainer = document.getElementById('slide-dots');
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('span');
@@ -188,7 +189,7 @@
             dotsContainer.appendChild(dot);
         }
         
-        // 显示第一张幻灯片
+        // Show first slide
         function showSlides() {
             for (let i = 0; i < totalSlides; i++) {
                 slides[i].classList.remove('active');
@@ -198,28 +199,28 @@
             document.querySelectorAll('.dot')[currentSlide].classList.add('active');
         }
         
-        // 下一张幻灯片
+        // Next slide
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
             showSlides();
         }
         
-        // 上一张幻灯片
+        // Previous Slide
         function prevSlide() {
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             showSlides();
         }
         
-        // 转到特定幻灯片
+        // Go to a specific slide
         function goToSlide(n) {
             currentSlide = n;
             showSlides();
         }
         
-        // 初始化
+        // Initialization
         showSlides();
         
-        // 键盘导航
+        // Keyboard Navigation
         document.addEventListener('keydown', function(e) {
             if (e.key === 'ArrowRight') {
                 nextSlide();
@@ -227,19 +228,6 @@
                 prevSlide();
             }
         });
-        
-        // 自动循环播放（可选）
-        // let slideInterval = setInterval(nextSlide, 15000); // 每15秒自动切换一次
-        
-        // 鼠标悬停暂停自动播放（如果启用自动播放）
-        // document.querySelector('.dashboard-container').addEventListener('mouseenter', function() {
-        //     clearInterval(slideInterval);
-        // });
-        
-        // 鼠标离开恢复自动播放（如果启用自动播放）
-        // document.querySelector('.dashboard-container').addEventListener('mouseleave', function() {
-        //     slideInterval = setInterval(nextSlide, 15000);
-        // });
     </script>
 </body>
 </html>
